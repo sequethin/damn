@@ -1,9 +1,11 @@
-from hasher import Hasher
-from dbwriter import TagDb
+import os
+
+import mutagen
 from mutagen import mp3
 
-import os
-import mutagen
+from dbwriter import TagDb
+from hasher import Hasher
+
 
 class TagReader(object):
     # TODO: this should be config
@@ -12,8 +14,6 @@ class TagReader(object):
     hasher = Hasher();
     db = TagDb()
 
-    # TODO: this needs tests
-    # TODO: this belongs in a class
     def should_add(self, attr, value):
         if attr == 'bitrate_mode':
             return value != mutagen.mp3.BitrateMode.UNKNOWN
