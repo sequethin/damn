@@ -13,6 +13,7 @@ class TagDb(object):
             print("Can't add a duplicate key")
 
     def addSongs(self, songs):
+        print("Adding songs!")
         bulk = self.db.songs.initialize_unordered_bulk_op()
         [bulk.insert(song) for song in songs]
         try:
